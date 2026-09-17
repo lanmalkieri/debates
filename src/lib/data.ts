@@ -11,6 +11,13 @@ export interface SpeakerOverview {
   html: string
 }
 
+/** One part of the essay: a narrative subhead, its paragraphs, and an optional pull quote taken from them. */
+export interface Section {
+  heading: string
+  html: string
+  pullquote: string | null
+}
+
 /** One published debate, as written by the /debate skill's publish step. */
 export interface Debate {
   slug: string
@@ -21,7 +28,9 @@ export interface Debate {
   motion: string
   ledeHtml: string
   essayHtml: string
-  imageUrl?: string
+  sections: Section[]
+  readingMinutes: number
+  imageUrl?: string | null
   imageAlt?: string
   speakers: SpeakerOverview[]
 }
@@ -33,7 +42,7 @@ export interface DebateSummary {
   subject: string
   date: string
   result: string
-  imageUrl?: string
+  imageUrl?: string | null
 }
 
 export async function fetchDebate(slug: string): Promise<Debate> {
@@ -53,4 +62,9 @@ export function formatDate(iso: string): string {
   const d = new Date(iso)
   if (Number.isNaN(d.getTime())) return iso
   return d.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
+}
+
+/** URL-safe anchor from a subhead. */
+export function slugify(text: string): string {
+  return text.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")
 }

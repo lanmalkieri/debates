@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from "react"
-import { ArrowLeft, ChevronDown, ChevronUp } from "lucide-react"
+import { motion, useScroll, useSpring } from "framer-motion"
+import { ArrowLeft, ChevronDown, ChevronUp, Clock } from "lucide-react"
 import AuroraBackground from "@/components/ui/aurora-background"
 import { cn } from "@/lib/utils"
 import { BASE } from "@/App"
-import { fetchDebate, formatDate, type Debate } from "@/lib/data"
+import { fetchDebate, formatDate, slugify, type Debate } from "@/lib/data"
 
 interface Props {
   slug: string
 }
 
-/** One debate: a full-screen aurora hero with the title and lede, the essay, and each speaker's own overview behind a button. */
+/** Thin reading-progress line pinned to the top of the viewport. */
+const Progress: React.FC = () => {
+  const { scrollYProgress } = useScroll()
+  const scaleX = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.3 })
+  return <motion.div style={{ scaleX }} className="fixed left-0 top-0 z-50 h-0.5 w-full origin-left bg-gradient-to-r from-purple-400 to-fuchsia-400" />
+}
+
+/** One debate: the aurora fills the whole page; the hero, the sectioned essay and the speakers' overviews scroll over it. */
 const DebatePage: React.FC<Props> = ({ slug }) => {
   const [debate, setDebate] = useState<Debate | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -24,48 +32,94 @@ const DebatePage: React.FC<Props> = ({ slug }) => {
     if (debate) document.title = debate.title
   }, [debate])
 
+  const aurora = {
+    starCount: 90,
+    pulseDuration: 8,
+    gradientColors: ["var(--aurora-color1, rgba(99,102,241,0.2))", "var(--aurora-color2, rgba(139,92,246,0.2))"] as [string, string],
+  }
+
   if (error) {
     return (
-      <AuroraBackground className="px-4">
-        <p className="text-lg text-gray-300">{error}</p>
-        <a href={BASE} className="mt-6 inline-flex items-center gap-2 text-gray-400 hover:text-white">
-          <ArrowLeft size={16} /> All debates
-        </a>
+      <AuroraBackground {...aurora} className="justify-center px-4">
+        <div className="text-center">
+          <p className="text-lg text-gray-300">{error}</p>
+          <a href={BASE} className="mt-6 inline-flex items-center gap-2 text-gray-400 hover:text-white"><ArrowLeft size={16} /> All debates</a>
+        </div>
       </AuroraBackground>
     )
   }
   if (!debate) {
-    return <AuroraBackground className="px-4"><p className="text-gray-400">Loading…</p></AuroraBackground>
+    return <AuroraBackground {...aurora} className="justify-center px-4"><p className="text-center text-gray-400">Loading…</p></AuroraBackground>
   }
 
-  return (
-    <div className="bg-black text-slate-50">
-      <AuroraBackground className="px-4 py-8" starCount={80} pulseDuration={8}
-        gradientColors={["var(--aurora-color1, rgba(99,102,241,0.2))", "var(--aurora-color2, rgba(139,92,246,0.2))"]}>
-        <div className="flex max-w-4xl flex-col items-center text-center">
-          <a href={BASE} className="mb-8 inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white">
-            <ArrowLeft size={14} /> All debates
-          </a>
-          {debate.imageUrl && (
-            <img
-              src={debate.imageUrl}
-              alt={debate.imageAlt ?? ""}
-              className="mb-8 max-h-[40vh] w-auto max-w-full rounded-2xl shadow-[0_0_80px_-10px_rgba(168,85,247,0.55)]"
-            />
-          )}
-          <p className="mb-4 text-sm tracking-wide text-gray-400">On {debate.subject}</p>
-          <h1 className="bg-gradient-to-br from-gray-50 to-gray-400 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-7xl">
-            {debate.title}
-          </h1>
-          <div className="lede mt-6 max-w-2xl text-lg text-gray-300 md:text-xl" dangerouslySetInnerHTML={{ __html: debate.ledeHtml }} />
-          <a href="#essay" className="mt-10 inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white">
-            Read <ChevronDown size={16} />
-          </a>
-        </div>
-      </AuroraBackground>
+  const sections = debate.sections?.length ? debate.sections : [{ heading: "", html: debate.essayHtml, pullquote: null }]
+  const toc = sections.filter((s) => s.heading)
 
-      <main id="essay" className="relative mx-auto max-w-3xl px-6 py-20">
-        <article className="essay text-lg leading-relaxed text-gray-300 md:text-xl md:leading-relaxed" dangerouslySetInnerHTML={{ __html: debate.essayHtml }} />
+  return (
+    <AuroraBackground {...aurora} fixed>
+      <Progress />
+
+      {/* Hero */}
+      <section className="flex min-h-screen flex-col items-center justify-center px-6 py-16 text-center">
+        <a href={BASE} className="mb-10 inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white">
+          <ArrowLeft size={14} /> All debates
+        </a>
+        {debate.imageUrl && (
+          <motion.img
+            src={debate.imageUrl}
+            alt={debate.imageAlt ?? ""}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1.2, ease: "easeOut" }}
+            className="mb-10 max-h-[46vh] w-auto max-w-full rounded-2xl shadow-[0_0_120px_-20px_rgba(168,85,247,0.7)] ring-1 ring-white/10"
+          />
+        )}
+        <p className="mb-4 text-sm tracking-wide text-gray-400">On {debate.subject}</p>
+        <h1 className="max-w-4xl bg-gradient-to-br from-gray-50 to-gray-400 bg-clip-text text-5xl font-bold tracking-tight text-transparent md:text-7xl">
+          {debate.title}
+        </h1>
+        <div className="lede mt-7 max-w-2xl text-lg text-gray-300 md:text-xl" dangerouslySetInnerHTML={{ __html: debate.ledeHtml }} />
+        <p className="mt-6 inline-flex items-center gap-2 text-sm text-gray-500"><Clock size={14} /> {debate.readingMinutes} min read</p>
+        {toc.length > 0 && (
+          <nav className="mt-10 flex max-w-3xl flex-wrap justify-center gap-2">
+            {toc.map((s, i) => (
+              <a key={s.heading} href={`#${slugify(s.heading)}`}
+                 className="rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-gray-300 backdrop-blur transition hover:border-purple-400/60 hover:text-white">
+                <span className="mr-2 text-gray-500">{i + 1}</span>{s.heading}
+              </a>
+            ))}
+          </nav>
+        )}
+        <a href={`#${toc[0] ? slugify(toc[0].heading) : "essay"}`} className="mt-12 inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white">
+          Read <ChevronDown size={16} />
+        </a>
+      </section>
+
+      {/* Essay */}
+      <main id="essay" className="mx-auto max-w-3xl px-6 pb-24">
+        {sections.map((s, i) => (
+          <motion.section
+            key={i}
+            id={s.heading ? slugify(s.heading) : undefined}
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="scroll-mt-16 pt-16"
+          >
+            {s.heading && (
+              <h2 className="mb-6 text-3xl font-semibold tracking-tight text-white md:text-4xl">
+                <span className="mr-3 text-base font-normal text-purple-300/80">{i + 1}</span>{s.heading}
+              </h2>
+            )}
+            {s.pullquote && (
+              <blockquote className="pull my-8 border-l-2 border-purple-400/70 pl-6 text-2xl leading-snug text-gray-100 md:text-3xl">
+                {s.pullquote}
+              </blockquote>
+            )}
+            <div className="essay text-lg leading-8 text-gray-200 md:text-[1.2rem] md:leading-9" dangerouslySetInnerHTML={{ __html: s.html }} />
+          </motion.section>
+        ))}
 
         <footer className="mt-16 border-t border-white/10 pt-6 text-sm text-gray-500">
           Written up from a formal debate held on {formatDate(debate.date)} in the {debate.format} format. The question put to the debate was: {debate.motion}.
@@ -119,7 +173,7 @@ const DebatePage: React.FC<Props> = ({ slug }) => {
           </section>
         )}
       </main>
-    </div>
+    </AuroraBackground>
   )
 }
 

@@ -15,6 +15,8 @@ export interface AuroraBackgroundProps {
   pulseDuration?: number
   /** ARIA label for the animated background */
   ariaLabel?: string
+  /** Pin the aurora to the viewport so it stays behind the whole page while the content scrolls */
+  fixed?: boolean
 }
 
 const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
@@ -27,17 +29,18 @@ const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
   ],
   pulseDuration = 10,
   ariaLabel = "Animated aurora background",
+  fixed = false,
 }) => {
   const [colorA, colorB] = gradientColors
+  const wrapper = fixed
+    ? "relative flex flex-col w-full min-h-screen items-center bg-black text-slate-50"
+    : "relative flex flex-col w-screen h-screen items-center justify-center bg-black text-slate-50 overflow-hidden"
+  const layer = fixed ? "fixed inset-0 overflow-hidden" : "absolute inset-0 overflow-hidden"
 
   return (
-    <div
-      role="img"
-      aria-label={ariaLabel}
-      className={`relative flex flex-col w-screen h-screen items-center justify-center bg-black text-slate-50 overflow-hidden ${className}`}
-    >
+    <div role="img" aria-label={ariaLabel} className={`${wrapper} ${className}`}>
       {/* Background layers (hidden from screen readers) */}
-      <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
+      <div className={layer} aria-hidden="true">
         {/* Pulsing radial gradients */}
         <div
           className="absolute inset-0 opacity-50"
@@ -125,7 +128,7 @@ const AuroraBackground: React.FC<AuroraBackgroundProps> = ({
       </div>
 
       {/* Foreground content */}
-      <div className="relative z-10">{children}</div>
+      <div className="relative z-10 w-full">{children}</div>
     </div>
   )
 }
