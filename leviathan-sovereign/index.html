@@ -10,95 +10,113 @@
 <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ground: #eeeff1;
-  --ink: #1b1f26;
-  --ink-2: #454a53;
-  --muted: #5f6570;
-  --rule: #d3d6db;
-  --brass: #b8862b;
-  --brass-ink: #7a5715;
-  --measure: 76ch;
+  --desk: #cfc3a9;
+  --paper: #f4ecdc;
+  --paper-edge: #e3d8c0;
+  --ink: #2a2318;
+  --ink-2: #4d4334;
+  --muted: #7a6d5a;
+  --rule: #d9cdb3;
+  --oxide: #8a3b2b;
+  --measure: 72ch;
   --serif: "Literata", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  color-scheme: light dark;
-}
-@media (prefers-color-scheme: dark) {
-  :root { --ground: #15181d; --ink: #e6e8eb; --ink-2: #c3c7cd; --muted: #9aa1ab; --rule: #2c323b; --brass: #c9a04a; --brass-ink: #e2bd6b; }
+  color-scheme: light;
 }
 * { box-sizing: border-box; }
-html { font-size: 19px; }
+html { font-size: 19px; background: var(--desk); }
 body {
-  margin: 0; background: var(--ground); color: var(--ink);
-  font-family: var(--serif); font-optical-sizing: auto; font-weight: 400; line-height: 1.6;
+  margin: 0; color: var(--ink); background: var(--desk);
+  font-family: var(--serif); font-optical-sizing: auto; font-weight: 400; line-height: 1.62;
   -webkit-font-smoothing: antialiased;
 }
-a { color: inherit; text-decoration-color: var(--brass); text-underline-offset: 0.18em; }
-:focus-visible { outline: 2px solid var(--brass); outline-offset: 3px; }
-.page { max-width: calc(var(--measure) + 4rem); margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2rem) 5rem; }
-.nav { padding: 0.9rem 0; border-bottom: 1px solid var(--rule); font-size: 0.9rem; }
-.nav a, .nav span { text-decoration: none; color: var(--brass-ink); }
-.nav a:hover { text-decoration: underline; }
+a { color: var(--oxide); text-decoration-color: color-mix(in oklab, var(--oxide) 45%, transparent); text-underline-offset: 0.18em; }
+:focus-visible { outline: 2px solid var(--oxide); outline-offset: 3px; }
 
-header { padding: clamp(3rem, 8vw, 5.5rem) 0 1rem; }
-.subject { font-size: 1rem; color: var(--muted); margin: 0 0 1.4rem; }
+.sheet {
+  position: relative; max-width: calc(var(--measure) + 7rem); margin: clamp(1rem, 4vw, 3rem) auto;
+  background: var(--paper); border: 1px solid var(--paper-edge);
+  box-shadow: 0 1px 2px rgba(60, 45, 20, 0.12), 0 18px 50px -20px rgba(60, 45, 20, 0.45);
+  padding: 0 clamp(1.2rem, 5vw, 3.5rem) 4rem;
+}
+.sheet::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: multiply; opacity: 0.07;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.16 0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>");
+}
+.nav { padding: 1rem 0 0.8rem; font-size: 0.9rem; }
+.nav a, .nav span { color: var(--muted); text-decoration: none; }
+.nav a:hover { color: var(--oxide); text-decoration: underline; }
+
+figure.hero { margin: 1rem calc(-1 * clamp(1.2rem, 5vw, 3.5rem)) 0; }
+figure.hero img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+
+header { padding: clamp(2rem, 5vw, 3.5rem) 0 0.6rem; }
+.subject { font-size: 0.95rem; color: var(--muted); margin: 0 0 1.1rem; letter-spacing: 0.01em; }
 h1 {
-  font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 400; line-height: 1.1;
-  font-variation-settings: "opsz" 72; letter-spacing: -0.015em; margin: 0 0 1.6rem;
+  font-size: clamp(2.1rem, 4.6vw, 3.2rem); font-weight: 400; line-height: 1.1;
+  font-variation-settings: "opsz" 72; letter-spacing: -0.012em; margin: 0 0 1rem;
   max-width: 24ch; text-wrap: balance;
 }
-.lede { font-size: 1.28rem; line-height: 1.5; font-variation-settings: "opsz" 24; }
+h1::after { content: ""; display: block; width: 3.5rem; height: 2px; background: var(--oxide); margin-top: 1.1rem; }
+.lede { font-size: 1.22rem; line-height: 1.5; font-variation-settings: "opsz" 24; color: var(--ink-2); margin-top: 1.2rem; }
 .lede p { max-width: var(--measure); margin: 0 0 1em; }
 
-.essay { padding-top: 1.2rem; }
-.essay p { max-width: var(--measure); margin: 0 0 1.15em; font-variation-settings: "opsz" 16; }
-.essay blockquote { margin: 1.2em 0 1.4em; padding: 0.1em 0 0.1em 1.2em; border-left: 3px solid var(--brass); color: var(--ink-2); font-style: italic; max-width: var(--measure); }
+.essay { padding-top: 1rem; }
+.essay p { max-width: var(--measure); margin: 0 0 1.2em; font-variation-settings: "opsz" 16; }
+.essay blockquote { margin: 1.2em 0 1.4em; padding: 0.1em 0 0.1em 1.2em; border-left: 2px solid var(--oxide); color: var(--ink-2); font-style: italic; max-width: var(--measure); }
 .essay blockquote em { font-style: normal; }
-.essay h2, .essay h3, .essay h4, .essay h5, .essay h6 { font-weight: 500; font-size: 1.35rem; margin: 2.2rem 0 0.7rem; line-height: 1.2; }
+.essay h2, .essay h3, .essay h4, .essay h5, .essay h6 { font-weight: 500; font-size: 1.3rem; margin: 2rem 0 0.6rem; line-height: 1.2; }
 .essay ul, .essay ol { max-width: var(--measure); }
 
-footer { margin-top: 4rem; padding-top: 1.2rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.88rem; max-width: var(--measure); }
+footer { margin-top: 3.5rem; padding-top: 1rem; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.86rem; max-width: var(--measure); }
 footer p { margin: 0 0 0.5em; }
 
 /* Speakers' own overviews: hidden until asked for */
-.speakers { margin-top: 2rem; max-width: var(--measure); }
-.reveal { font: inherit; font-size: 0.95rem; color: var(--brass-ink); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.5em 1.1em; cursor: pointer; }
-.reveal:hover { border-color: var(--brass); }
-.reveal[aria-expanded="true"] { background: var(--rule); }
-.sp-note { color: var(--muted); font-size: 0.95rem; margin: 1.2rem 0 0.8rem; }
+.speakers { margin-top: 1.6rem; max-width: var(--measure); }
+.reveal { font: inherit; font-size: 0.92rem; color: var(--oxide); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.5em 1.1em; cursor: pointer; }
+.reveal:hover { border-color: var(--oxide); }
+.reveal[aria-expanded="true"] { background: color-mix(in oklab, var(--oxide) 8%, transparent); }
+.sp-note { color: var(--muted); font-size: 0.92rem; margin: 1.2rem 0 0.8rem; }
 .sp-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-.sp-btn { font: inherit; font-size: 0.95rem; color: var(--ink); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.4em 0.9em; cursor: pointer; }
-.sp-btn:hover { border-color: var(--brass); }
-.sp-btn[aria-expanded="true"] { border-color: var(--brass); background: color-mix(in oklab, var(--brass) 12%, transparent); }
+.sp-btn { font: inherit; font-size: 0.92rem; color: var(--ink); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.4em 0.9em; cursor: pointer; }
+.sp-btn:hover { border-color: var(--oxide); }
+.sp-btn[aria-expanded="true"] { border-color: var(--oxide); background: color-mix(in oklab, var(--oxide) 8%, transparent); }
 .sp-detail { color: var(--muted); font-size: 0.85em; margin-left: 0.3em; }
-.sp-panel { padding: 0.6rem 0 0.2rem 1.1rem; border-left: 3px solid var(--brass); }
-.sp-panel p { margin: 0 0 0.9em; font-size: 0.98rem; }
-.sp-role { color: var(--muted); font-size: 0.9rem; }
+.sp-panel { padding: 0.6rem 0 0.2rem 1.1rem; border-left: 2px solid var(--oxide); }
+.sp-panel p { margin: 0 0 0.9em; font-size: 0.96rem; }
+.sp-role { color: var(--muted); font-size: 0.88rem; }
 
-@media (max-width: 640px) { html { font-size: 17px; } h1 { font-size: 2rem; } }
-@media print { .nav { display: none; } body { background: #fff; color: #000; } }
+@media (max-width: 640px) {
+  html { font-size: 17px; }
+  .sheet { margin: 0; border: 0; box-shadow: none; }
+  h1 { font-size: 2rem; }
+}
+@media print { .sheet { box-shadow: none; border: 0; margin: 0; } .sheet::before { display: none; } .nav, .speakers { display: none; } }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="sheet">
   <nav class="nav"><a class="home" href="../index.html">All debates</a></nav>
+
+  
 
   <header>
     <p class="subject">On Leviathan, Thomas Hobbes, 1651</p>
     <h1>Does keeping the peace require one unlimited ruler?</h1>
-    <div class="lede"><p>A peaceful street depends on something that stops people from taking what they want by force. Thomas Hobbes said that something has to be a single power that has the last word and answers to no one above it, and that alternative accounts of political order also depend on a final authority. Hobbes shows why order needs enforceable decisions, but does not establish that all powers must belong to one unlimited sovereign.</p></div>
+    <div class="lede"><p>Peace depends on something that stops people from taking what they want by force. In Leviathan, Thomas Hobbes argued that this takes a single power with the last word and no authority above it. On his account, proposals for gentler government rely on that same power without admitting it. The book proves only part of this case, but its critics concede too little of the part it does prove.</p></div>
   </header>
 
   <article class="essay">
-    <p>People want the same scarce things, nobody is strong enough to be safe from everyone else, and a promise costs nothing to break. Something has to keep the people of a town from fighting each other. In Leviathan, Hobbes says that something is a sovereign: one man or one assembly that everyone has agreed to obey. The sovereign holds the final power to judge, to punish, to raise armies and to tax, and no earthly authority can overrule it. Is an unlimited sovereign the only honest account of political order? By honest I don't mean kind. I mean an answer that names the mechanism that holds order up and says what that mechanism costs.</p>
-<p>Hobbes does not say people are wicked. He says they are roughly equal, and that the equality is the danger: "the weakest has strength enough to kill the strongest, either by secret machination, or by confederacy with others." Nobody can be sure of winning, so everybody has a reason to strike first. Hobbes calls the condition of people with no common power over them the state of nature, and he says it is a state of war. He defines war as a standing readiness to fight and compares it to bad weather, a tendency over several days rather than a single shower. In that condition life is "solitary, poore, nasty, brutish, and short." He asks him to notice that he locks his doors at night and locks his chests inside his own house, "and this when he knows there bee Lawes, and publike Officers, armed, to revenge all injuries." Under government the fear is still there. It gets managed.</p>
-<p>The way out is a covenant, which is a promise given in exchange for a promise. Each person gives up the right to govern himself on condition that everyone else does the same, and hands that right to the sovereign. Hobbes's whole point is that a promise by itself is worthless when breaking it pays: "Covenants, without the Sword, are but Words, and of no strength to secure a man at all." So the sovereign has to hold the sword, and has to hold all of it. The rights that make up sovereignty (the militia, the courts, the purse, and the power to decide which doctrines may be taught) are "incommunicable, and inseparable." If you give the army to one body and the money to another, you have set up the two sides of a civil war. Hobbes traces the English war to exactly this. People came to believe that power was divided between King, Lords and Commons, and once they believed it, they formed factions, each sure it had the final word. "A kingdome divided in it selfe cannot stand."</p>
-<p>The first serious position says Hobbes gives the only honest answer, because every other answer turns out to be his under another name. Its test for any rival account is to name the enforcer. Courts, elections and a constitution are real mechanisms, and in ordinary life they work. A judge can decide a case without commanding a regiment. But sovereignty is about the moment ordinary life breaks down. Suppose a court orders an election, the legislature declares the order unconstitutional and withholds the money, and the executive declares an emergency to stop the vote. Those are three conflicting instructions about whether one public act will happen, and the soldier at the door needs to know which one governs. Someone has to read the rules for settling the clash, and if each body reads its own powers, each is the judge in its own case. Whoever finally binds the losers, including on what the rules mean, is the sovereign. A constitution that hides this still depends on Hobbes. He says the sovereign can do terrible things, that there is no remedy against it, and that the alternative is worse.</p>
-<p>The second serious position says limited government finishes what Hobbes started. Finality belongs to a decision, and a final decision doesn't prove there is one unlimited decider behind it. A constitution can say that a court's reading of a right is final, that the legislature's control of spending is final, that the executive commands the forces, and that elections can remove all three. Each is final within its own area because officials accept an earlier rule that divides up who decides what. When a dispute crosses those lines, further rules of appeal, override and removal settle it. None of these bodies needs to hold the others' powers. Hobbes himself allows the sovereign to be an assembly whose members disagree and settle it by majority vote, and a rule for settling disagreement is not one unlimited will. Suppose you call the whole constitutional arrangement the sovereign. The claim becomes true, but it stops being Hobbes's claim, because the book insists the rights of sovereignty sit undivided in some "Man, or Assembly of men." On the modest reading, order needs binding decisions. On the strong one, those decisions must sit with one holder of every power who is legally answerable to no one, and the crisis example doesn't prove that. The example only works because it deletes the rules that rank the conflicting orders and then points out that nothing ranks them.</p>
-<p>Hobbes says that kings, who have no judge above them, stand "in the state and posture of Gladiators," with their weapons pointed and their eyes fixed on one another. Yet "there does not follow from it, that misery, which accompanies the Liberty of particular men." That is order among armed sovereigns with no judge above them. And the bargain that founds the commonwealth has a condition: "The Obligation of Subjects to the Soveraign is understood to last as long, and no longer, than the power lasteth, by which he is able to protect them." Limited government writes that condition down in advance. It provides a court to hear the claim that protection has failed and a vote to remove the ruler who failed, so the claim doesn't get settled by force.</p>
-<p>The gladiator passage supports limited government less than it seems to. Hobbes calls the kings' relation "a posture of War," and their subjects avoid misery because each king "uphold[s] thereby, the Industry of their Subjects." That is order kept by two armed sovereigns, each absolute at home. The small families that Hobbes credits with government are, in his words, "a little Monarchy" whose concord "dependeth on naturall lust." Suppose an executive ignores the court and the army follows the executive. The executive has staged a coup, which means order has broken down, and it doesn't prove order never existed. Calling the executive's action a coup doesn't explain why officials accept constitutional decisions while the system is functioning. They accept them because they believe the common rules bind them.</p>
-<p>That belief is the first position's weak point, because Hobbes admits his own sovereign depends on it too. The lesson of the civil war, he says, will last "till their miseries are forgotten; and no longer, except the vulgar be better taught." A commonwealth carries "from the very institution, many seeds of a naturall mortality, by Intestine Discord," and an army can overthrow a king as easily as a president. If a constitution is dishonest because it depends on people continuing to accept it, then so is Leviathan. Any order needs a settlement that dissenters can't overturn by force, and in a crisis the settlement and the means to enforce it have to come together. That insight belongs to Hobbes. It doesn't show that the settlement has to sit with one holder who is unlimited in every function.</p>
-<p>The two positions disagree most over the word honest in a passage about the killing of one man. Hobbes writes that "nothing the Soveraign Representative can doe to a Subject, on what pretence soever, can properly be called Injustice, or Injury," because every subject authorized every act of the sovereign in advance. His example is King David's killing of Uriah, an innocent man. The act was "against the law of Nature, as being contrary to Equitie," and it was an injury to God. It was not an injury to Uriah, "because the right to doe what he pleased, was given him by Uriah himself." Subjects who complain about such things, Hobbes says, are looking through the "multiplying glasses" of self-love. On one reading, Hobbes doesn't call the killing harmless. He calls it wicked, and he refuses to pretend that any earthly court can hear the case. On the other reading, the passage is a definition built so the cost can never be counted. The commonwealth exists to protect people from violent death, and when the protector kills, the theory won't allow the word injury. The only rule left for the victim is a law of nature with no judge and no punishment, which by Hobbes's own test is "but Words." Elsewhere he adds that tyranny is just monarchy "misliked." I don't think the book settles whether the passage is candor or relabeling, because both readings are in the text.</p>
-<p>A third position says the honest answer is voluntary cooperation kept going by mutual benefit. It is weaker than the other two. It explains why people might cooperate, but it doesn't explain why they have to keep cooperating when breaking the deal pays, and that is the only question Hobbes cares about. It does get one thing right: the limit on the sovereign is a private one. A subject ordered to kill or maim himself "hath that man the Liberty to disobey," and the right of self-defense "can by no Covenant be relinquished." So in that case the last judge in Leviathan is each individual person, and no public body exists to hear the claim.</p>
-<p>The book settles that order needs a common power able to enforce it, that promises alone don't hold, that the bargain trades obedience for protection and ends when protection ends, and that no earthly remedy exists against the final authority. One unresolved question is whether the final settlement has to sit with one unlimited holder, or can sit in a rule that officials accept. The other is whether the belief Hobbes admits his sword depends on can hold up a constitution as well as it holds up a crown. I'd take away the test more than the conclusion. When an account of order sounds comfortable, ask who binds the losers when the rules themselves are in dispute, and ask what the account says about the innocent man the enforcer kills. Hobbes explains who enforces decisions, but his account denies that the sovereign's killing of an innocent subject is an injury to that subject.</p>
+    <p>People want the same scarce things. Nobody is strong enough to be safe from everybody else, and when nobody can enforce a promise, people can break it without penalty. Hobbes's answer in Leviathan is a sovereign, meaning one man or one assembly that everyone has agreed to obey. The sovereign holds the final power to judge, to punish, to raise armies and to tax, and no earthly authority can overrule it. The question is whether any other account can honestly explain how order is kept and what it costs. An honest account may describe an unkind system. It can't assume peace without explaining how peace is secured.</p>
+<p>He starts from the fact that people are roughly equal, and he doesn't claim they are wicked. That equality is what makes them dangerous to each other: "the weakest has strength enough to kill the strongest, either by secret machination, or by confederacy with others." Nobody can be sure of winning, so everybody has a reason to strike first. Hobbes calls the condition of people with no common power over them the state of nature, and he says it is a state of war. By war he means a standing readiness to fight, which can last between outbreaks of fighting, the way bad weather describes a tendency over several days rather than a single shower. In that condition life is "solitary, poore, nasty, brutish, and short." Hobbes supports the claim by asking the reader to look at his own precautions. The reader locks his doors at night and locks his chests inside his house, "and this when he knows there bee Lawes, and publike Officers, armed, to revenge all injuries." People still fear injury under a government, and the government has to manage that fear.</p>
+<p>The way out is a covenant, which is a promise given in exchange for a promise. Each person gives up the right to govern himself, on condition that everyone else does the same, and hands that right to the sovereign. A promise alone gives no security when breaking it pays, and Hobbes insists on this: "Covenants, without the Sword, are but Words, and of no strength to secure a man at all." So the sovereign has to control all the means of enforcement. Hobbes calls the rights that make up sovereignty (the militia, the courts, the purse and the power to decide which doctrines may be taught) "incommunicable, and inseparable." If separate bodies control the army and the money, they become opposing sides in a civil war, and the arrangement meant to protect people defeats itself. Hobbes traces the English war to exactly this split. An opinion took hold that power was divided between King, Lords and Commons, and people formed factions, each sure it had the final word. He writes: "A kingdome divided in it selfe cannot stand."</p>
+<p>The case that Hobbes gives the only honest answer holds that rival accounts rely on the same sovereign power, whatever they call it. It asks who enforces decisions under each arrangement. Courts, elections and a constitution work in ordinary life, and a judge can decide a case without commanding a regiment. Sovereignty becomes the issue when ordinary government breaks down. Suppose a court orders an election. The legislature declares the order unconstitutional and withholds the money, and the executive declares an emergency to stop the vote. All three instructions are about whether the same public act happens. A soldier told to enforce a decision needs to know which instruction governs. Someone has to interpret the rules for settling the conflict, and if each body interprets its own powers, each is judge in its own cause. Whoever finally binds the losers, including on the question of what the rules mean, is the sovereign. A constitution that leaves that power unnamed hides its dependence on the authority Hobbes describes. On this view Hobbes is the honest one, because he admits the sovereign can do terrible things and that there is no remedy against it. He accepts that cost because he judges the alternative to be worse.</p>
+<p>The case for limited government treats it as an honest completion of Hobbes's argument. It draws a distinction his defenders tend to miss: a decision can be final without any one person or body having unlimited power. A constitution can make a court's reading of a right final and give the legislature final control of spending. It can put the forces under the executive's command and provide for elections that can remove all three. Each body has the last word inside its own jurisdiction because officials accept an earlier rule that assigns its powers. When a dispute crosses those lines, further rules of appeal, override and removal settle it. No body has to hold every other power. Hobbes himself allows the sovereign to be an assembly whose members disagree and settle their differences by majority vote. A rule like that can settle disagreement without being one unlimited will. Calling the whole constitutional arrangement the sovereign makes the claim true by changing what Hobbes means, since the book insists the rights of sovereignty sit undivided in some "Man, or Assembly of men." Both arguments accept that order needs binding decisions. The stronger claim says those decisions have to belong to one holder of every power who answers to no law, and the crisis example doesn't prove that. The example takes away the rules that rank conflicting orders and then observes that nothing is left to rank them.</p>
+<p>The constitutional case also finds evidence in the book. Hobbes says kings have no judge above them and so stand "in the state and posture of Gladiators," weapons pointed and eyes fixed on each other. Yet "there does not follow from it, that misery, which accompanies the Liberty of particular men." That describes order at the most dangerous level, where no final judge has authority. The bargain that founds the commonwealth is also conditional. Hobbes writes: "The Obligation of Subjects to the Soveraign is understood to last as long, and no longer, than the power lasteth, by which he is able to protect them." Limited government writes that condition down in advance. A court can hear a claim that protection has failed, and a vote can remove the ruler responsible. Those procedures let the claim be heard and acted on without leaving people to settle it by force.</p>
+<p>The passage about the gladiators is weak evidence for limited government. Hobbes calls the kings' relation "a posture of War," and he explains that their subjects avoid misery because each king "uphold[s] thereby, the Industry of their Subjects." Those subjects live under two rulers, each absolute inside his own territory, so the order described there still depends on sovereign authority. The small families Hobbes credits with government are, in his words, "a little Monarchy" whose concord "dependeth on naturall lust." The constitutional case has a further problem when an executive ignores the court and the army follows the executive. Its answer is that a coup has happened. Order has broken down, and the breakdown doesn't prove order never existed. That answer is valid, but naming the failure doesn't explain what makes a losing institution accept a settlement while the system still works. Officials comply because they believe the common rules bind them.</p>
+<p>Hobbes admits his own sovereign depends on the same belief, and that weakens the argument that only his answer is honest. The lesson of the civil war, he says, will last "till their miseries are forgotten; and no longer, except the vulgar be better taught." So the sovereign's power to enforce depends on what people believe. A commonwealth carries "from the very institution, many seeds of a naturall mortality, by Intestine Discord," and an army can overthrow a king as easily as a president. If a constitution is dishonest because it depends on people continuing to accept it, Leviathan is dishonest for the same reason. Hobbes's strong claim does establish that order needs a settlement that dissenters can't overturn by force. It also establishes that in a crisis, the people who decide the settlement need the means to enforce it. That is a substantial point, but it doesn't show that one holder needs unlimited power over every function of government.</p>
+<p>Another dispute over honesty concerns Hobbes's account of a sovereign who kills an innocent subject. Hobbes writes that "nothing the Soveraign Representative can doe to a Subject, on what pretence soever, can properly be called Injustice, or Injury," because every subject authorized every act of the sovereign in advance. His example is David's killing of Uriah, an innocent man. Hobbes says the act was "against the law of Nature, as being contrary to Equitie," and an injury to God. He denies it was an injury to Uriah, "because the right to doe what he pleased, was given him by Uriah himself." Subjects who complain about such things, he writes, are looking through "multiplying glasses" of self-love. One reading treats this as an unusually bleak kind of honesty. Hobbes admits the harm by calling the killing wicked, and he refuses to pretend that an earthly court can hear the case. The other reading says his definition keeps the cost from being counted at all. The commonwealth exists to protect people from violent death, yet its theory forbids calling a killing by the protector an injury to the victim. The victim can appeal only to a law of nature that has no judge and no punishment, which by Hobbes's own test is "but Words." Elsewhere Hobbes calls tyranny monarchy "misliked." The text supports both readings, so it remains open whether this is candor or a change of names.</p>
+<p>The claim that voluntary cooperation for mutual benefit is the honest answer is weaker than either of these positions. It explains why people might cooperate. It leaves unanswered the only question Hobbes cares about, which is why they have to keep cooperating when breaking faith pays. It does correctly identify the private limit on the sovereign's power. Hobbes says a subject commanded to kill or maim himself "hath that man the Liberty to disobey," and that the right of self-defence "can by no Covenant be relinquished." When survival is at stake, each person in Leviathan is the last judge, and no public body hears the claim. These liberties limit Hobbes's theory, but they don't offer another account of government, because a right to defend your life gives you no authority to govern.</p>
+<p>Order needs a common power that can enforce decisions, and promises alone can't secure it. The bargain gives obedience in exchange for protection, and it ends when protection ends. There is no earthly remedy against the final authority. The book doesn't settle whether final authority has to belong to one unlimited holder or can rest on a rule that officials accept. It also leaves open whether the beliefs that Hobbes admits enforcement depends on can hold up a constitution as well as a monarchy. Ask who binds the losers when the rules themselves are in dispute, and ask how the account treats an innocent person killed by the enforcer. Hobbes answers the first question better than anyone. His answer on the innocent victim is worse than almost anyone's, and he states both answers openly.</p>
   </article>
 
   <footer>

@@ -8,32 +8,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,300..700;1,7..72,300..700&display=swap" rel="stylesheet">
 <style>
-:root { --ground:#eeeff1; --ink:#1b1f26; --ink-2:#454a53; --muted:#5f6570; --rule:#d3d6db; --brass:#b8862b; --brass-ink:#7a5715;
-  --serif:"Literata","Iowan Old Style","Palatino Linotype",Georgia,serif; color-scheme: light dark; }
-@media (prefers-color-scheme: dark) { :root { --ground:#15181d; --ink:#e6e8eb; --ink-2:#c3c7cd; --muted:#9aa1ab; --rule:#2c323b; --brass:#c9a04a; --brass-ink:#e2bd6b; } }
+:root { --desk:#cfc3a9; --paper:#f4ecdc; --paper-edge:#e3d8c0; --ink:#2a2318; --ink-2:#4d4334; --muted:#7a6d5a; --rule:#d9cdb3; --oxide:#8a3b2b;
+  --serif:"Literata","Iowan Old Style","Palatino Linotype",Georgia,serif; color-scheme: light; }
 * { box-sizing: border-box; }
-html { font-size: 18px; }
-body { margin:0; background:var(--ground); color:var(--ink); font-family:var(--serif); font-optical-sizing:auto; line-height:1.5; -webkit-font-smoothing:antialiased; }
-.page { max-width: 62rem; margin: 0 auto; padding: clamp(3rem,8vw,6rem) clamp(1rem,4vw,3rem) 5rem; }
-h1 { font-size: clamp(2.2rem,5vw,3.6rem); font-weight:400; font-variation-settings:"opsz" 72; letter-spacing:-0.015em; line-height:1.05; margin:0 0 0.6rem; }
-.lede { color: var(--ink-2); max-width: 52ch; margin: 0 0 3rem; font-size: 1.15rem; }
+html { font-size: 18px; background: var(--desk); }
+body { margin:0; background:var(--desk); color:var(--ink); font-family:var(--serif); font-optical-sizing:auto; line-height:1.5; -webkit-font-smoothing:antialiased; }
+.sheet { position:relative; max-width: 58rem; margin: clamp(1rem,4vw,3rem) auto; background:var(--paper); border:1px solid var(--paper-edge);
+  box-shadow: 0 1px 2px rgba(60,45,20,.12), 0 18px 50px -20px rgba(60,45,20,.45); padding: clamp(2.5rem,6vw,4.5rem) clamp(1.2rem,5vw,3.5rem) 4rem; }
+.sheet::before { content:""; position:absolute; inset:0; pointer-events:none; mix-blend-mode:multiply; opacity:.07;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='g'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.35 0 0 0 0 0.28 0 0 0 0 0.16 0 0 0 0.9 0'/></filter><rect width='100%' height='100%' filter='url(%23g)'/></svg>"); }
+h1 { font-size: clamp(2.2rem,5vw,3.4rem); font-weight:400; font-variation-settings:"opsz" 72; letter-spacing:-0.012em; line-height:1.05; margin:0 0 0.8rem; }
+h1::after { content:""; display:block; width:3.5rem; height:2px; background:var(--oxide); margin-top:1rem; }
+.lede { color: var(--ink-2); max-width: 52ch; margin: 1.2rem 0 2.6rem; font-size: 1.12rem; }
 ol { list-style:none; padding:0; margin:0; }
 .row { display:grid; grid-template-columns: 9rem 1fr; gap:0 1.5rem; padding:1.4rem 0; border-top:1px solid var(--rule); }
 .row:last-child { border-bottom:1px solid var(--rule); }
-.date { color: var(--muted); font-variant-numeric: tabular-nums; padding-top:0.25rem; }
+.date { color: var(--muted); font-variant-numeric: tabular-nums; padding-top:0.3rem; font-size:0.95rem; }
 .motion { font-size:1.45rem; font-variation-settings:"opsz" 28; line-height:1.2; text-decoration:none; color:var(--ink); }
-.motion:hover { text-decoration: underline; text-decoration-color: var(--brass); text-underline-offset:0.15em; }
+.motion:hover { color: var(--oxide); }
 .sub { margin:0.4rem 0 0; color:var(--ink-2); max-width:66ch; }
 .empty { color: var(--muted); }
-@media (max-width: 640px) { html{font-size:16px} .row { grid-template-columns: 1fr; gap:0.2rem; } }
+@media (max-width: 640px) { html{font-size:16px} .sheet{margin:0;border:0;box-shadow:none} .row { grid-template-columns: 1fr; gap:0.2rem; } }
 </style>
 </head>
 <body>
-<div class="page">
+<div class="sheet">
   <h1>Debates</h1>
   <p class="lede">Essays on the big arguments inside books, each one written up from a formal debate. 1 so far.</p>
   <ol>
-    <li class="row"><span class="date">17 September 2026</span><div><a class="motion" href="leviathan-sovereign/">Does keeping the peace require one unlimited ruler?</a><p class="sub">Leviathan, Thomas Hobbes. A peaceful street depends on something that stops people from taking what they want by force.</p></div></li>
+    <li class="row"><span class="date">17 September 2026</span><div><a class="motion" href="leviathan-sovereign/">Does keeping the peace require one unlimited ruler?</a><p class="sub">Leviathan, Thomas Hobbes. Peace depends on something that stops people from taking what they want by force.</p></div></li>
   </ol>
 </div>
 </body>
