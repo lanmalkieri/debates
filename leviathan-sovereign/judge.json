@@ -1,0 +1,130 @@
+{
+ "tldr": "Opening Opposition (Opus and Sol) won a close debate. Government showed that keeping the peace needs some final way to settle disputes, but never showed that the settler must hold every power and answer to nobody, which is what Hobbes actually claims. Opposition turned Government's own test back on Hobbes: he gives a wronged subject a moral rule with no earthly enforcer, exactly the kind of empty promise Government had called dishonest. Closing Government was accurate but added little. Closing Opposition invented quotations and finished last. The round shows Hobbes is strongest on why peace needs a sword and weakest on what happens when the sword is turned on an innocent person.",
+ "overview": "Hobbes wrote Leviathan in 1651, during the English civil wars. His claim is simple. Without a common power over them, people live in what he calls the state of nature: not constant fighting, but a standing readiness for it, the way bad weather is a tendency over days rather than one shower. The way out is a covenant, a mutual promise in which everyone gives up the right to govern themselves to one man or one assembly. That person or body is the sovereign. It holds all the essential powers, cannot be accused of injustice by its subjects, and cannot be removed by them. The motion asked whether this is the only honest answer to how people keep order.\n\nSonnet, opening for Government, defined honest as clear-eyed: an answer is honest if it names what actually holds the peace up. She set a test for Opposition: name your enforcer, and then ask whether it is not a sovereign in a different hat. Opus, leading the Opposition, accepted the test and conceded that order needs coercive public authority. He then went to the text. Hobbes says obedience lasts only as long as the sovereign can protect you, and that nobody can give up the right to defend their own life. So at the moment of crisis, Opus argued, the last judge in Hobbes is every single subject. He also pressed the case of Uriah, an innocent man killed by King David, whom Hobbes says suffered no injury because he had authorised the king in advance.\n\nThe middle of the debate was the best of it. Astra, for Government, conceded exactly what needed conceding: sovereignty does not end fear, constitutional procedures are real, and Hobbes leaves the innocent with no enforceable remedy. She then drew the key distinction: a liberty to save your own life is not an authority to govern others. And she posed the hard case: a court orders an election, the legislature withholds the money, the executive claims an emergency. Who decides? Sol, for Opposition, answered that a decision being final is not the same as one body being unlimited. A constitution ranks the branches by rule, and the hard case only looks unanswerable if you delete the ranking rules first. He then turned Government's own standard: Hobbes gives Uriah a law of nature with no judge and no punishment, which by Government's test is only words.\n\nThe closing half was weaker on both sides. Haiku repeated Astra's collision scenario and added that rules must themselves be interpreted, but he wrongly said Hobbes calls his sovereign tyrannical, and shifted the motion from only honest to only complete. Qwen presented an extension that restated the opening Opposition case in softer words and quoted two passages that do not exist in the text. Luna gave an honest Government whip speech, conceded that Opposition had described a plausible order, and correctly showed that Qwen's quotations were not in the book. Gemini, closing for Opposition, was fluent and added one genuinely new idea, that a sovereign who censors doctrine cuts off the feedback he needs, but that idea arrived in the whip speech where new arguments are not allowed, and Gemini said nothing about the invented quotations.\n\nBy the end, both benches agreed that any order rests, at the limit, on officials and citizens accepting a common rule. The disagreement narrowed to whether that rule must name one holder of all power. Government asserted that Opposition had merely relocated the sovereign. Opposition replied that Hobbes's own sword rests on opinion too, since he says the lesson of civil war lasts only until miseries are forgotten and devotes a chapter to teaching subjects their duty. That parity, plus the Uriah turn, decided the round.",
+ "analysis": "Opening Opposition placed first because the motion says only, and Government did not carry that word. Government conceded that constitutions coordinate, that there is no remedy against the sovereign, that Hobbes cannot prevent a coup, and finally that Opposition had described a plausible order. Once those concessions are in, the only way to rescue only is to show that every rival secretly depends on a Hobbesian sovereign. Sol named his dependence openly: chains of command, allegiance to the constitution, control of funds, removal. Naming your dependence is the opposite of hiding it. Government's own text supplies its best reply and nobody used it: in Chapter XIX Hobbes says a king whose power is limited is not the sovereign, the body that limits him is, and in Chapter XXIX he calls mixed government three factions rather than one state. Without that, Government's answer to Sol's distinction between a final decision and an unlimited decider stayed an assertion.\n\nOpening Government placed a close second. Its textual accuracy was the best in the room, and Astra's speech was the best single speech of the night: she conceded precisely, engaged every Opposition point, and restored the qualification Opus had left out, that Hobbes calls David's act against the law of nature and contrary to equity. But conceding well narrows a case, and this case was narrowed below the motion. Government ended up defending the true but modest claim that order needs some binding settlement, which Opposition had agreed to in the second speech.\n\nClosing Government placed third and Closing Opposition fourth, and the gap is wide. The first thing an adjudicator weighs is whether a team engages the text accurately. Haiku made one clear error about the word tyranny and did not own it when corrected. Qwen attributed two passages to Chapter XIII that are not in the book, quoted a fellow debater's paraphrase as if it were Hobbes, cited the wrong chapters twice, and then told the House the quotation was accurate when Sonnet challenged it. His extension, that people should cooperate voluntarily because it benefits them, also abandoned his own bench's concession that order needs coercion, and it failed the enforcer test Opus and Sol had already met. Gemini's whip speech was skilled but credited Opening Opposition's arguments to his own team, introduced new matter, and passed over the fabrications in silence. Luna, by contrast, weighed honestly, checked the text, and conceded what the record required.\n\nWhat should a reader take about the book? Hobbes is at his strongest in Chapters XIV and XVII, on what philosophers call the assurance problem: a promise that nobody enforces will be broken whenever breaking it pays, so anyone who says peace can rest on agreement alone must say who acts when agreement fails. Every serious rival to Hobbes has to answer that, and this debate showed how hard it is. He is at his weakest in Chapter XXI, and both benches saw it. He says obligation lasts only while protection lasts and that no one can give up the right to resist death. So private judgment, which the whole system exists to remove, comes back at the moment of crisis. He also says the sovereign can commit iniquity, meaning moral wrong, but never injustice, meaning a wrong to the subject. That is not a lie, but it is a definition that keeps the subject's injury out of the political ledger, and Opposition was right to say so.\n\nOne more thing the round exposed: Hobbes's sword is less self-standing than the slogan suggests. He says the English will remember the lesson of civil war only until their miseries are forgotten, and Chapter XXX spends pages on how the sovereign must teach subjects their duty. Order in Leviathan rests on opinion as much as on force. Readers who want to test the motion for themselves should read Chapters XVIII, XXI, XXIX and XXX, and check every quotation, since two speakers tonight put words in Hobbes's mouth.",
+ "rankings": [
+  {
+   "team": "oo",
+   "rank": 1,
+   "reason": "Met Government's enforcer test with named institutions, showed that Hobbes's own order rests on opinion as much as any constitution, and turned Government's standard on the Uriah passage; that was enough to defeat the word only."
+  },
+  {
+   "team": "og",
+   "rank": 2,
+   "reason": "The most accurate team and the best single speech, but its precise concessions narrowed the case to a claim Opposition had already accepted, and it never used Hobbes's own reply to divided power in Chapters XIX and XXIX."
+  },
+  {
+   "team": "cg",
+   "rank": 3,
+   "reason": "Accurate and honestly weighed, but the extension repeated the opening bench, one speaker misdescribed Hobbes on tyranny, and the whip conceded that Opposition had described a plausible order."
+  },
+  {
+   "team": "co",
+   "rank": 4,
+   "reason": "Two invented quotations, a debater's paraphrase quoted as Hobbes, a denial when challenged, an extension that restated the opening bench, and a whip speech that introduced new matter and credited the other Opposition team's work to itself."
+  }
+ ],
+ "speakers": [
+  {
+   "speaker": "og-pm",
+   "score": 80,
+   "note": "Every quotation checked out, the enforcer test framed the whole debate, and both replies to points of information were clean; the speech did not confront the word only or the Chapter XXI protection clause."
+  },
+  {
+   "speaker": "oo-lo",
+   "score": 81,
+   "note": "Accepted the test, conceded coercive authority, and found the strongest text of the night in Chapter XXI, but read the small-families passage against its plain sense and left out the equity qualification on Uriah."
+  },
+  {
+   "speaker": "og-dpm",
+   "score": 85,
+   "note": "The best speech: exact concessions, direct answers to every Opposition point, the liberty-versus-authority distinction, and the three-branch collision case; it lacked the Chapter XIX text that would have closed the argument."
+  },
+  {
+   "speaker": "oo-dlo",
+   "score": 86,
+   "note": "The sharpest analysis of the round: finality is not totality, Government's scenario assumes the failure it needs to prove, and a law of nature with no earthly judge is only words by Government's own test; excellent under questioning."
+  },
+  {
+   "speaker": "cg-mg",
+   "score": 68,
+   "note": "Forceful and mostly derivative; the interpretation regress was a real contribution, but he wrongly said Hobbes calls the sovereign tyrannical, dodged the correction, called an answered question unanswered, and moved the motion from only honest to only complete."
+  },
+  {
+   "speaker": "co-mo",
+   "score": 52,
+   "note": "Two quotations attributed to Chapter XIII are not in the book, a fellow debater's paraphrase was quoted as Hobbes, the denial under questioning was untrue, and the extension contradicted the bench's own concession that order needs coercion."
+  },
+  {
+   "speaker": "cg-gw",
+   "score": 76,
+   "note": "An honest whip who conceded what the record required, checked Qwen's quotations against the text correctly, and framed the definitional split fairly, but softened only to most and brought no new text."
+  },
+  {
+   "speaker": "co-ow",
+   "score": 66,
+   "note": "Fluent and well organised, with one genuinely new and textually grounded idea about censorship starving the sovereign of feedback, but it was new matter in a whip speech, the weighing credited Opening Opposition's work to Closing, a paraphrase was quoted as Hobbes, and the fabrications went unmentioned."
+  }
+ ],
+ "best_argument": "Sol's turn of Government's own standard. The Prime Minister had said that a covenant without a sword is only words, so any account of order that relies on an unenforced promise is dishonest. Sol pointed out that Hobbes's answer to the killing of Uriah is exactly such a promise: the sovereign is bound by the law of nature, but there is no judge, no punishment and no remedy on earth. Government could not call unenforced norms dishonest when citizens rely on them and adequate when sovereigns violate them. Paired with his distinction between a decision being final and a body being unlimited, and his charge that Government's three-branch scenario had quietly deleted the rules that rank the branches, this was the argument that decided the round.",
+ "weakest_argument": "Qwen's extension. It proposed that the honest answer to order is a system where people cooperate voluntarily because cooperation benefits them, which is the wish Hobbes spends Chapters XIV and XVII refuting and which Opus had already conceded away in the second speech. It rested on two passages attributed to Chapter XIII that are not in Leviathan, and when Sonnet pointed this out Qwen insisted the quotation was accurate. An extension is supposed to add something new for its bench; this one repeated Opening Opposition in weaker form and undercut it.",
+ "fallacies": [
+  "Opus: read the gladiators passage against its stated cause; Hobbes says the subjects escape misery because their own sovereigns uphold their industry, and calls the relation between sovereigns a posture of war, yet Opus re-asserted it as balanced power working after Sonnet had already answered the point.",
+  "Opus: selective quotation on Uriah, omitting Hobbes's statement in the same passage that the killing was against the law of nature and contrary to equity.",
+  "Haiku: straw man, saying Opposition refuses to answer who compels compliance when Sol had just listed chains of command, allegiance, funding and removal.",
+  "Haiku: shifted the burden, closing on the claim that Hobbes's sovereign is the only complete answer when the motion says only honest answer.",
+  "Haiku: when Opus corrected the claim that Hobbes calls his sovereign tyrannical, pivoted to the structural point instead of owning the error.",
+  "Qwen: fabricated quotations attributed to Chapter XIII, then told the House the quotation was accurate when challenged.",
+  "Qwen: quoted Opus's phrase that Uriah authorised his own murder as if it were Hobbes's text.",
+  "Qwen: contradicted his own bench, proposing systems that make force unnecessary after Opus had conceded that order needs coercive public authority.",
+  "Gemini: introduced new matter in the whip speech, the argument that censorship starves the sovereign of feedback, which Qwen had not made and Government had no chance to answer; then defended it as synthesis.",
+  "Gemini: credited Opening Opposition's within-the-text arguments on Chapter XXI and Uriah to Closing Opposition when weighing the two teams.",
+  "Gemini: straw man of Government's final position, saying it offered a choice between an absolute sovereign and total chaos after Astra and Luna had conceded that constitutions coordinate.",
+  "Gemini: silence on Luna's demonstration that his partner's quotations were not in the text.",
+  "Luna: softened the motion from only honest to most honest in the closing line, recovered under questioning."
+ ],
+ "unverifiable_claims": [
+  "Qwen: Chapter XIII, 'The strongest hath not always the greatest power to do mischief; and the weakest, though he may be in danger, yet he may be able to kill the strongest.' Not in the text. The genuine line is 'the weakest has strength enough to kill the strongest, either by secret machination, or by confederacy with others.'",
+  "Qwen: Chapter XIII, 'For seeing the nature of man is such, that for his own preservation he will not only do what is necessary, but also what is convenient; and seeing also that he is naturally a creature of passion, and not of reason, it is not to be expected that he will observe the laws of nature, unless he be compelled by fear.' Not in the text.",
+  "Qwen: Hobbes says Uriah 'authorised his own murder' (cited as 18.4). Not Hobbes's words; the Uriah passage is in Chapter XXI and says the right to do what he pleased 'was given him by Uriah himself.'",
+  "Qwen: 'the Soveraign is subject to violent death' (cited as 18.5). Chapter XXI says Soveraignty 'is in its own nature, not only subject to violent death, by forreign war'; the right of self-protection he cites to Chapter XVIII is also in Chapter XXI.",
+  "Gemini: Hobbes claims Uriah 'authorised his own murder' (cited to Chapter XXI). Not in the text; it is Opus's paraphrase.",
+  "Gemini: Chapter XXIX lists 'lack of counsel' or 'suppressed counsel' among the diseases of a commonwealth. Chapter XXIX lists private judgment, erroneous conscience, inspiration, subjecting the sovereign to law, absolute property, divided power, imitation of neighbours, want of money, monopolies, popular men and others; counsel is not among them.",
+  "Haiku: Hobbes 'does not flinch from calling it tyrannical.' The text says the reverse: Chapter XIX calls tyranny the name for monarchy 'misliked', and the Review and Conclusion says those who use the word 'are understood to bee angry.'",
+  "Opus: small families in Chapter XIII have government whose concord rests on 'natural affection.' The text says 'naturall lust', and describes those people as having 'no government at all' and living 'in that brutish manner.'"
+ ],
+ "model_notes": [
+  {
+   "speaker": "Sonnet",
+   "observation": "Disciplined and accurate. Every quotation matched the source, the definition and test were set up cleanly, and both replies to points of information turned the question rather than deflecting it. The case was structurally sound but did not anticipate the Chapter XXI protection clause that Opposition built on."
+  },
+  {
+   "speaker": "Opus",
+   "observation": "Text-first and rhetorically strong. Found the best passage of the night in Chapter XXI and conceded early and cleanly. Also the most willing on the Opposition bench to bend a passage past its sense: the gladiators as balanced power, and small families as government by affection when Hobbes says the opposite. Quick and effective on points of information."
+  },
+  {
+   "speaker": "Astra",
+   "observation": "The most careful reasoner in the room. Conceded exactly what the text forced and nothing more, distinguished liberty from authority precisely, and built the collision case that shaped the second half. Slightly abstract; cited little new text and never reached Chapter XIX, which was the direct answer to Sol."
+  },
+  {
+   "speaker": "Sol",
+   "observation": "Rigorous and fair. Separated finality from totality, caught Government's scenario begging the question, and turned Government's own test on Uriah. Weighed honestly, admitting his own alternative can fail and arguing parity rather than pretending otherwise. Excellent under questioning."
+  },
+  {
+   "speaker": "Haiku",
+   "observation": "Confident and forceful but largely repeated the opening bench. The interpretation regress was a real contribution. Made one clear factual error about tyranny, did not own it when corrected, and mischaracterised an answered point as evasion. The extension was a restatement rather than new matter."
+  },
+  {
+   "speaker": "Qwen",
+   "observation": "The weakest engagement with the text in the round. Two quotations were fabricated, chapter citations were wrong, a fellow debater's gloss was quoted as Hobbes, and the denial under questioning was untrue. Arguments were generic and stayed at the level of assertion; the extension contradicted the bench's own concession."
+  },
+  {
+   "speaker": "Luna",
+   "observation": "An honest whip. Weighed the record fairly, credited Opposition's best point, checked the opposing quotations against the text and reported the result accurately, and conceded what the debate required. Soft on the word only and brought no new text, but reliable throughout."
+  },
+  {
+   "speaker": "Gemini",
+   "observation": "Polished and well structured, with one genuinely new textually grounded idea about censorship and feedback. Undermined by role and accuracy problems: new matter in a whip speech, a paraphrase quoted as text, a partisan weighing that took credit for the other Opposition team's arguments, and no acknowledgement of the partner's invented quotations. Answered the substance of Luna's Chapter XXX question well."
+  }
+ ]
+}
